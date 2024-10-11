@@ -34,7 +34,7 @@ void draw()
  
 }
 
-//function used to mapping inputs to screen size
+//Function used to mapping inputs to screen size
 float mapingXYControl(float value, int size) {
   return map(value, 0, 1, 0, size);
 }
