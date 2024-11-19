@@ -13,8 +13,13 @@ color minuteColor = #000000;
 color hourColor = #000000;
 
 //Retreive the values of time and date 
+<<<<<<< HEAD
 int hr =hour();
 int originalHr = hour(); 
+=======
+int hr =11; //hour();
+int originalHr = 11; //hour(); 
+>>>>>>> 638c5f18b5e21e39dc62b5fca08776a03812312f
 int min = minute();
 int sec = second();
 int today = day(); 
