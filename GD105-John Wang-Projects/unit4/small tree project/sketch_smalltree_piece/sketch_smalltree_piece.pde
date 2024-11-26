@@ -4,6 +4,11 @@ int startRow = 0; // Start row for scrolling
 int rowsToShow = 10; // Number of rows to show at a time 
 int totalRows; // Total number of rows in the table
 boolean displayTable = true; // Flag to track table display
+String treeName = "Silver Maple";
+float growthRate = 0.15; 
+float maxGrowthStage = 250;
+
+
 
 void setup() {
   size(800, 600);
@@ -13,6 +18,7 @@ void setup() {
   //load the dataset data of tree facts. 
   treeTable = loadTable("tree_data.csv", "header");
   totalRows = treeTable.getRowCount();
+  
 }
 
 void draw() {
@@ -21,39 +27,96 @@ void draw() {
   // Draw the ground
   fill(34, 139, 34); // Green for the ground
   rect(0, height - 100, width, 100);
-   
+  
+  fill(0); 
+  textAlign(CENTER, CENTER);
+  textSize(30);
+  text(treeName, 400, 550); 
+    
   
   // Update and display all trees
   for (Tree tree : trees) {
     tree.grow();
     tree.display();
   }
+ 
+  
   
 // Display the table if the flag is true 
 if (displayTable) { 
     displayTreeTable(); 
  }
  
-  //  //Save 300 frames inside frame holder 
-  //if(frameCount> 50 && frameCount<700) {
-  //  saveFrame("frames/tree-######.png");
-  //}
+    //Save 300 frames inside frame holder 
+  if(frameCount> 50 && frameCount<700) {
+    saveFrame("frames/tree-######.png");
+  }
   
 }
 
 void mousePressed() {
+  
+  // Toggle the displayTable flag when the screen is clicked 
+   displayTable = !displayTable;
+   
+   
   // Ensure seed is dropped on the ground
   if (mouseY > height - 100) {
     trees.add(new Tree(mouseX, mouseY));
   }
+  
+   
+}
+
+void keyPressed() {
+  if (key == 'r' || key == 'R') { 
+      for (Tree tree : trees) { 
+         tree.clean(); // Reset the tree when 'r' is pressed 
+       } 
+      
+   int randomRow = int(random(1, 30));
+  TableRow row = treeTable.getRow(randomRow);
+  treeName = row.getString("Name"); 
+  
+  fill(0); 
+  textAlign(CENTER, CENTER);
+  textSize(30);
+  text(treeName, 400, 550); ; 
+  
+  
+  String growRateString= row.getString("GrowthRate"); 
+  String matureSizeString = row.getString("MatureSize"); 
+  
+ println(""+ treeName +" " + growRateString + " "  +  matureSizeString); 
+  int growRateInt = int(growRateString.substring(1)); 
+   if (growRateInt == 1 ) {
+        growthRate = 0.1; 
+   } else if ( growRateInt  == 2 ) {
+        growthRate = 0.2;
+   }  else  {
+        growthRate = 0.3;
+     } 
+     
+   int matureSizInt= int(matureSizeString.substring(2)); 
+     if (matureSizInt < 50 )  {
+         maxGrowthStage = 200; 
+     } else if (matureSizInt > 50 && matureSizInt < 60 ) { 
+         maxGrowthStage = 250;
+    }  else {
+        maxGrowthStage = 300;
+    }
+  }   
+  
 }
 
 //class tree represent the tree properties and functions which can grow and display
 class Tree {
   PVector position;
   float growthStage;
-  float maxGrowthStage = 300; // Adjust to control tree growth stages
-  float growthRate = 0.1; // Slow growth rate
+  //float maxGrowthStage = 300; // Adjust to control tree growth stages
+  //float growthRate = 0.1; // Slow growth rate
+  
+  
   ArrayList<Branch> branches;
   color trunkColor = color(139, 69, 19); // Saddle brown for the trunk
   
@@ -88,6 +151,12 @@ class Tree {
       branch.display();
     }
   }
+ 
+ void clean() { 
+   growthStage = 0; // Reset growth stage 
+   branches.clear(); // Clear all existing branches 
+   branches.add(new Branch(new PVector(position.x, position.y), new PVector(0, -10), trunkColor, 10, 1, 20)); // Add initial branch 
+ }
 }
 
 //class branch represent the tree properties and functions which can grow, display and add more leaves
