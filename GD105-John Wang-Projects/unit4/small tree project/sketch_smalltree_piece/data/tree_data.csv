@@ -1,0 +1,31 @@
+﻿Id,Name,GrowthRate,MatureSize,RootDepth
+1,Silver Maple,2-3 feet/year,50-70 feet,Shallow
+2,Willow,3-5 feet/year,30-50 feet,Shallow
+3,Eastern Cottonwood,6 feet/year,70-100 feet,Shallow
+4,Red Maple,1-2 feet/year,40-60 feet,Moderately Deep
+5,White Pine,1-2 feet/year,50-80 feet,Deep
+6,Tulip Tree,1-2 feet/year,60-90 feet,Deep
+7,White Oak,1 foot/year,50-80 feet,Deep
+8,Japanese Maple,1 foot/year,15-25 feet,Shallow
+9,American Beech,1 foot/year,50-70 feet,Shallow
+10,Sugar Maple,1-2 feet/year,60-75 feet,Deep lateral
+11,Black Cherry,1-2 feet/year,50-80 feet,Moderately deep
+12,American Sweetgum,1-2 feet/year,60-80 feet,Moderately deep lateral
+13,Live Oak,1 foot/yea,40-80 feet,Deep lateral
+14,Southern Magnolia,1 foot/year,60-80 feet,Deep lateral
+15,Ginkgo,1 foot/year,50-80 feet,Deep
+16,Cedar,1 foot/year,50-80 feet,Deep fibrous
+17,Northern Red Oak,1-2 feet/year,60-75 feet,Deep lateral
+18,Scots Pine,1-2 feet/year,30-70 feet, Deep lateral
+19,Norway Maple,1-2 feet/year,40-60 feet,Moderately deep fibrous
+20,Black Locust, 2-3 feet/year,40-70 feet,Moderately deep lateral
+21,Sycamore,2-3 feet/year,70-100 feet,Deep lateral
+22,Loblolly Pine,2-3 feet/year,60-90 feet,Deep lateral
+23,Kentucky Coffeetree, 1-2 feet/year,50-70 feet,Moderately deep
+24,European Beech,1 foot/yea,40-60 feet,Shallow extensive
+25,Sweet Bay Magnolia,1-2 feet/year,10-35 feet,Moderately deep
+26,Southern Red Oak,1-2 feet/year,60-80 feet,Deep lateral
+27,Sugarberry,1-2 feet/year,60-80 feet,Deep lateral
+28,Mockernut Hickory,1 foot/year,50-80 feet,Deep lateral
+29,Dogwood,1 foot/year,15-30 feet,Shallow fibrous
+30,Black Walnut,1-2 feet/year,50-75 feet,Deep lateral
