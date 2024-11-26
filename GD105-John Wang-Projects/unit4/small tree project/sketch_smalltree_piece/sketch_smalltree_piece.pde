@@ -48,9 +48,9 @@ if (displayTable) {
  }
  
     //Save 300 frames inside frame holder 
-  if(frameCount> 50 && frameCount<700) {
-    saveFrame("frames/tree-######.png");
-  }
+  //if(frameCount> 50 && frameCount<700) {
+  //  saveFrame("frames/tree-######.png");
+  //}
   
 }
 
