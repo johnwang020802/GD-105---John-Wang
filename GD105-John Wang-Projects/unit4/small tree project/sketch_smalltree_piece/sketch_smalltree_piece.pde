@@ -47,7 +47,7 @@ if (displayTable) {
     displayTreeTable(); 
  }
  
-    //Save 300 frames inside frame holder 
+  //  //Save 300 frames inside frame holder 
   //if(frameCount> 50 && frameCount<700) {
   //  saveFrame("frames/tree-######.png");
   //}
@@ -88,7 +88,9 @@ void keyPressed() {
   String matureSizeString = row.getString("MatureSize"); 
   
  println(""+ treeName +" " + growRateString + " "  +  matureSizeString); 
-  int growRateInt = int(growRateString.substring(1)); 
+  int growRateInt = int(growRateString.substring(0,1)); 
+  
+   println("int of growRate" + growRateInt); 
    if (growRateInt == 1 ) {
         growthRate = 0.1; 
    } else if ( growRateInt  == 2 ) {
@@ -97,7 +99,9 @@ void keyPressed() {
         growthRate = 0.3;
      } 
      
-   int matureSizInt= int(matureSizeString.substring(2)); 
+   int matureSizInt= int(matureSizeString.substring(0, 2)); 
+    println("int of mature size " + matureSizInt); 
+   
      if (matureSizInt < 50 )  {
          maxGrowthStage = 200; 
      } else if (matureSizInt > 50 && matureSizInt < 60 ) { 
@@ -105,7 +109,9 @@ void keyPressed() {
     }  else {
         maxGrowthStage = 300;
     }
-  }   
+  } 
+  
+  println(""+ treeName +" " + growthRate + " "  +  maxGrowthStage);
   
 }
 
@@ -115,8 +121,6 @@ class Tree {
   float growthStage;
   //float maxGrowthStage = 300; // Adjust to control tree growth stages
   //float growthRate = 0.1; // Slow growth rate
-  
-  
   ArrayList<Branch> branches;
   color trunkColor = color(139, 69, 19); // Saddle brown for the trunk
   
@@ -129,6 +133,9 @@ class Tree {
   }
   
   void grow() {
+    
+     println(""+ treeName +" " + growthRate + " "  +  maxGrowthStage);
+     
     if (growthStage < maxGrowthStage) {
       growthStage += growthRate; // Gradual growth
       ArrayList<Branch> newBranches = new ArrayList<Branch>();
